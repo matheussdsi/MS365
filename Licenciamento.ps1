@@ -1,9 +1,11 @@
-#1º#
+#1ºConectar no portal#
 Connect-MsolService
+
 #2º# 
 Get-MsolAccountsku
 
 #Verificar usuários Licenciados#
+
 Get-MsolUser | Where {$_.IsLicensed}|format-table
 
 Get-MsolUser | Where {$_.IsLicensed}| Out-GridView
@@ -12,6 +14,7 @@ Get-MsolUser | Where {$_.IsLicensed}| Select status ,Displayname ,Licenses |Out-
 
 Get-MsolUser | Where {$_.IsLicensed}| Select status ,Displayname ,Licenses |
 #Verificar usuários Licenciados#
+
 Get-MsolUser | Where {($_.IsLicensed).AccountSkuID -eq $accountskuid} | Export-CSV "C:\tmp\licenças.csv"
 
 Get-MsolUser | Where {($_.IsLicensed).AccountSkuID -eq $accountskuid} | Export-CSV "C:\tmp\licenças.csv"
